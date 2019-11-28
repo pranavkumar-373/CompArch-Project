@@ -17,57 +17,112 @@ map<string,int>shamtValues;
 
 void initialize()
 {
-    //REGISTERS STORED HERE
     regValues["$zero"]=0;
-    regValues["$s0"]=16;
-    regValues["$s1"]=17;
-    regValues["$s2"]=18;
-    regValues["$s3"]=19;
-    regValues["$s4"]=20;
-    regValues["$s5"]=21;
-    regValues["$s6"]=22;
-    regValues["$s7"]=23;
+    regValues["s0"]=16;
+    regValues["s1"]=17;
+    regValues["s2"]=18;
+    regValues["s3"]=19;
+    regValues["s4"]=20;
+    regValues["s5"]=21;
+    regValues["s6"]=22;
+    regValues["s7"]=23;
 
-    regValues["$t0"]=8;
-    regValues["$t1"]=9;
-    regValues["$t2"]=10;
-    regValues["$t3"]=11;
-    regValues["$t4"]=12;
-    regValues["$t5"]=13;
-    regValues["$t6"]=14;
-    regValues["$t7"]=15;
-
-
-    //R-FORMAT
+    regValues["t0"]=8;
+    regValues["t1"]=9;
+    regValues["t2"]=10;
+    regValues["t3"]=11;
+    regValues["t4"]=12;
+    regValues["t5"]=13;
+    regValues["t6"]=14;
+    regValues["t7"]=15;
+///////R--------FORMAT    
     opcode["add"]=0; 
     opcode["sub"]=0;
     opcode["mul"]=0;
     opcode["and"]=0;
     opcode["or"]=0; 
+    opcode["div"]=0; 
+    opcode["sll"]=0; 
+    opcode["srl"]=0; 
+    opcode["sra"]=0;
+    opcode["addu"]=0; 
+    opcode["jr"]=0;
+    opcode["mfhi"]=0;
+    opcode["mthi"]=0;
+    opcode["mflo"]=0; 
+    opcode["mtlo"]=0; 
+    opcode["divu"]=0; 
+    opcode["xor"]=0; 
+    opcode["slt"]=0;
+
 
     functionValues["add"]=32;
     functionValues["sub"]=34;
     functionValues["mul"]=24; 
     functionValues["and"]=36;
     functionValues["or"]=37;
+    functionValues["div"]=26;
+    functionValues["sll"]=0;
+    functionValues["srl"]=2;
+    functionValues["sra"]=3
+    functionValues["addu"]=33; 
+    functionValues["jr"]=8;
+    functionValues["mfhi"]=16;
+    functionValues["mflo"]=18; 
+    functionValues["mtlo"]=19; 
+    functionValues["divu"]=27; 
+    functionValues["xor"]=38; 
+    functionValues["slt"]=42;
 
     shamtValues["add"]=0;
     shamtValues["sub"]=0;
     shamtValues["mul"]=0;
     shamtValues["and"]=0;
     shamtValues["or"]=0;
+    shamtValues["div"]=0;
+    shamtValues["sll"]=4;
+    shamtValues["srl"]=4;
+    shamtValues["sra"]=4;
 
 
-
-    //I-FORMAT
-    opcode["lw"]=35;
-    opcode["sw"]=43;
+////////I------FORMAT
     opcode["beq"]=4; 
     opcode["bne"]=5;
-
-
-    //JUMP FORMAT
-    opcode["j"]=2;
+    opcode["addi"]=8;
+    opcode["addiu"]=9;
+    opcode["andi"]=12; 
+    opcode["ori"]=13; 
+    opcode["slti"]=10; 
+    opcode["sltiu"]=11; 
+    opcode["lui"]=15;
+    opcode["lw"]=35;
+    opcode["sw"]=43;
+    opcode["beq"]=4;
+    opcode["blez"]=6; 
+    opcode["bgtz"]=7;
+    opcode["lbu"]=36;
+    opcode["lb"]=32;
+    opcode["sh"]=41;
+    opcode["sb"]=40;
+    
+    functionValues["beq"]=0; 
+    functionValues["bne"]=0;
+    functionValues["addi"]=0;
+    functionValues["addiu"]=0;
+    functionValues["andi"]=0; 
+    functionValues["ori"]=0; 
+    functionValues["slti"]=0; 
+    functionValues["sltiu"]=0; 
+    functionValues["lui"]=0;
+    functionValues["lw"]=0;
+    functionValues["sw"]=0;
+    functionValues["beq"]=0;
+    functionValues["blez"]=0; 
+    functionValues["bgtz"]=0;
+    functionValues["lbu"]=0;
+    functionValues["sh"]=0;
+    functionValues["lb"]=0;
+    functionValues["sb"]=0;
 }
 void processInstructions(vector<vector<string>>&instructions)
 {
