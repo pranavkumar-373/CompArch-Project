@@ -212,7 +212,7 @@ int32_t main()
         {
             break;
         }
-        else if(x=="add" || x=="sub" || x=="mul" || x=="and" || x=="or") //R-FORMAT
+        else if(x=="add" || x=="sub" || x=="mul" || x=="and"||x=="or"||x=="add"||x=="sub"||x=="mul"||x=="and"||x=="or"||x=="div"||x=="sll"||x=="srl"||x=="sra"||x=="addu"||x=="jr"||x=="mfhi"||x=="mthi"||x=="mflo"||x=="mtlo"||x=="divu"||x==xor||x=="slt") //R-FORMAT
         {
             string reg1,reg2,reg3;
             cin>>reg1>>reg2>>reg3;
@@ -223,7 +223,7 @@ int32_t main()
             temp.pb(reg3);
             temp.pb(to_string(1));
         }
-        else if(x=="lw" || x=="sw") //I-FORMAT
+        else if(x=="beq"||x=="bne"||x=="addi"||x=="addiu"||x=="andi"||x=="ori"||x=="slti"||x=="sltiu"||x=="lui"||x=="lw"||x=="sw"||x=="beq"||x=="blez"||x=="bgtz"||x=="lbu"||x=="lb"||x=="sh"||x=="sb") //I-FORMAT
         {
             string reg1,reg2;
             string offset;
